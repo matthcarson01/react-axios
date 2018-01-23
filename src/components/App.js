@@ -4,7 +4,8 @@ import './App.css';
 import Header from './Header/Header';
 import List from './List/List';
 import Workspace from './Workspace/Workspace';
-import {getCustomerList} from '../customers';
+import {getCustomerList, postCustomer} from '../customers';
+
 
 
 class App extends Component {
@@ -17,11 +18,13 @@ class App extends Component {
       currentCustomer: null
     }
     this.startNewCustomer=this.startNewCustomer.bind(this);
+    this.createCustomer=this.createCustomer.bind(this);
 
   }
 
   componentDidMount(){
-    getCustomerList().then(response => this.setState({customerList:response}));
+    getCustomerList()
+      .then(response => this.setState({customerList:response}));
   }
 
   startNewCustomer(){
@@ -30,6 +33,12 @@ class App extends Component {
       initialLoad: false,
       currentCustomer: null
     })
+  }
+
+  createCustomer(customerObj){
+    postCustomer(customerObj)
+      .then(response => getCustomerList()
+                          .then(list => this.setState({customerList:list})));
   }
 
   render() {
@@ -48,6 +57,7 @@ class App extends Component {
           <Workspace initialLoad={this.state.initialLoad}
                     currentCustomer={this.state.currentCustomer}
                     creating={this.state.creating}
+                    createCustomer={this.createCustomer}
                   />
         </div>
       </div>
