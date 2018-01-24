@@ -17,24 +17,6 @@
       "email": "sarahcroft@gmail.com",
       "phone": "(325)-345-2352",
       "log": "This\nis\nanother\ntest\nlog"
-    },
-    {
-      "first": "Matt",
-      "last": "Carson",
-      "email": "matthewhcarson@gmail.com",
-      "phone": "(404)492-6317",
-      "status": "New Customer",
-      "log": "",
-      "id": 3
-    },
-    {
-      "first": "Joe",
-      "last": "Warren",
-      "email": "joe@email.com",
-      "phone": "(770)719-3434",
-      "status": "New Customer",
-      "log": "",
-      "id": 4
     }
   ]
 }
